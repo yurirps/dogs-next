@@ -5,7 +5,7 @@ import apiError from "@/functions/api-error";
 import { cookies } from "next/headers";
 
 export default async function login(
-  state: { ok: boolean },
+  state: { ok: boolean; error?: string },
   formData: FormData
 ) {
   // ou deixar o objeto vazio**
