@@ -36,7 +36,7 @@ export default async function userGet(formData?: FormData) {
     // Só roda login se formData existir
     if (formData) {
       const { ok } = await login({ ok: true, error: "" }, formData);
-      if (!ok) throw new Error("Erro ao buscar usuário00.");
+      if (!ok) throw new Error("Erro ao buscar usuário.");
     }
 
     return { data, ok: true, error: "" };
