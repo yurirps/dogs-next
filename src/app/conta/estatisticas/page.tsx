@@ -1,7 +1,7 @@
 export default async function EstatisticasPage() {
     return (
         <main>
-            <h1>Estatistica</h1>
+            <h1>Estatística</h1>
         </main>
     )
 }
