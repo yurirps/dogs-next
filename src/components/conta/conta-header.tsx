@@ -9,12 +9,14 @@ import styles from './conta-header.module.css'
 import UseMedia from '@/hooks/use-media'
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import logout from '@/actions/logout';
+import { useUser } from '@/context/user-context';
 
 function getTitle(pathname: string) {
     switch(pathname) {
         case '/conta/postar':
             return 'Poste sua Foto';
-        case '/conta/estatistica':
+        case '/conta/estatisticas':
             return 'Estatísticas';
         default:
             return 'Minha Conta';
@@ -30,8 +32,10 @@ export default function ContaHeader() {
         setMobileMenu(false)
     },[pathname])
 
-    function handleLogout() {
-        // userLogout()
+    const {setUser} = useUser()
+    async function handleLogout() {
+        await logout()
+        setUser(null)
     }
 
     return (
@@ -59,6 +63,7 @@ export default function ContaHeader() {
                     <AdicionarIcon />
                     {mobile && 'Adicionar Fotos'}
                 </Link>
+              
                 <button onClick={handleLogout}>
                     < SairIcon />
                     {mobile && 'Sair'}
