@@ -7,18 +7,22 @@ export const metadata: Metadata = {
 };
 
 type ResetarSearchParams = {
-    searchParams: {
-        key: string,
-        login: string
-    }
-}
+  searchParams: {
+    key: string;
+    login: string;
+  };
+};
 
-export default async function ResetarPage({searchParams}: ResetarSearchParams) {
-    console.log(searchParams)
+export default async function ResetarPage({
+  searchParams,
+}: ResetarSearchParams) {
   return (
     <div className="animeLeft">
       <h1 className="title">Nova Senha</h1>
-      <LoginResetarForm keyToken={searchParams.key} login={searchParams.login} />
+      <LoginResetarForm
+        keyToken={searchParams.key}
+        login={searchParams.login}
+      />
     </div>
   );
 }

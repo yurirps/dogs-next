@@ -31,26 +31,20 @@ export function USER_POST() {
   };
 }
 
-export function PHOTO_POST(formData, token) {
+export function PHOTO_POST() {
   return {
     url: API_URL + "/api/photo",
-    options: {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-      body: formData,
-    },
-  };
+  }
 }
 
-export function PHOTOS_GET({ page, total, user }) {
+export function PHOTOS_GET({ page, total, user }: {
+   page: number
+   total: number
+   user: 0 | string
+})
+   {
   return {
     url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
-    options: {
-      method: "GET",
-      cache: "no-store",
-    },
   };
 }
 

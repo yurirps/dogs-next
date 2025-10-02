@@ -16,6 +16,7 @@ export default async function userPost(
 
   try {
     if (!username || !email || !password) throw new Error("Preencha os dados");
+    if (password.length < 6) throw new Error('A senha precisa ser maior que 6 dígitos.')
     const { url } = USER_POST();
     const response = await fetch(url, {
       method: "POST",

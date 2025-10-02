@@ -1,14 +1,43 @@
-"use client";
+import photosGet from "@/actions/photos-get";
+import userGet from "@/actions/user-get";
+import Feed from "@/components/feed/feed";
+import DogIcon from "@/icons/dog-icon";
+import { Metadata } from "next";
+import Link from "next/link";
 
-import { useUser } from "@/context/user-context";
-import React from "react";
+export const metadata: Metadata = {
+  title: "Minha Conta",
+};
 
-export default function ContaPage() {
-  const { user } = useUser();
+export default async function ContaPage() {
+  const { data: user } = await userGet();
+  const { data } = await photosGet({ user: user?.username });
 
   return (
-    <main>
-      <h1>Conta: {user?.nome}</h1>
-    </main>
+    <section>
+      {data?.length ? (
+        <Feed photos={data} />
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <p
+            style={{ color: "#444", fontSize: "1.25rem", marginBottom: "1rem" }}
+          >
+            Poste sua primeira foto.
+          </p>
+          <DogIcon />
+          <Link href={"/conta/postar"} className="button">
+            {" "}
+            Postar Foto
+          </Link>
+        </div>
+      )}
+    </section>
   );
 }
