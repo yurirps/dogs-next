@@ -34,8 +34,6 @@ export default function ContaPhotoPost() {
     if (target.files) {
       setImg(URL.createObjectURL(target.files[0]));
     }
-
-    console.log(target.files);
   }
 
   return (
