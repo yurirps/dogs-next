@@ -3,6 +3,8 @@
 import photosGet, { Photo } from "@/actions/photos-get";
 import FeedPhotos from "./feed-photos";
 import React from "react";
+import Loading from "@/components/helper/loading";
+import styles from "./feed.module.css";
 
 export default function Feed({
   photos,
@@ -35,7 +37,7 @@ export default function Feed({
     if (page === 1) return;
     async function getPagePhotos(page: number) {
       const actionData = await photosGet(
-        { page, total: 6, user: 0 },
+        { page, total: 6, user: 0 }, // { page, total: 6, user: user ?? 0 }
         { cache: "no-store" }
       );
       if (actionData && actionData.data !== null) {
@@ -65,7 +67,9 @@ export default function Feed({
   return (
     <div>
       <FeedPhotos photos={photosFeed} />
-      {loading && <p>Carregando...</p>}
+      <div className={styles.loadingWrapper}>
+        {infinite ? loading && <Loading /> : <p>Você chegou ao final.</p>}
+      </div>
     </div>
   );
 }
