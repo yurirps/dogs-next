@@ -13,7 +13,7 @@
 }
 
 .photo:nth-child(2) {
-    grid-column: 2/4 ;
+    grid-column: 2/4;
     grid-row: span 2;
 }
 
@@ -46,7 +46,7 @@
     display: none;
 }
 
-.visualizacao::before{
+.visualizacao::before {
     width: 16px;
     height: 10px;
     content: '';
@@ -57,4 +57,16 @@
 
 .photo:hover .visualizacao {
     display: flex;
+}
+
+.loadingWrapper {
+    display: flex;
+    height: 100px;
+    margin: 1rem auto;
+}
+
+.loadingWrapper p {
+    text-align: center;
+    margin: auto;
+    color: #888;
 }
