@@ -16,8 +16,7 @@ export default function NotFound() {
         style={{ marginBottom: "1rem", display: "inline-block" }}
         href={"/"}
       >
-        {" "}
-        Volte para home{" "}
+        Volte para home
       </Link>
     </section>
   );
