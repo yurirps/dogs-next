@@ -1,12 +1,12 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormStatus } from "react-dom";
 import styles from "./photo-comments-form.module.css";
 import EnviarIcon from "@/icons/enviar-icon";
 import ErrorMessage from "../helper/error-message";
 import { Comment } from "@/actions/photo-get";
 import commentPost from "@/actions/comment-post";
-import React from "react";
+import React, { useActionState } from "react";
 
 function FormButton() {
   const { pending } = useFormStatus();
@@ -26,7 +26,7 @@ export default function PhotoCommentsForm({
   id: number;
   setComments: React.Dispatch<React.SetStateAction<Comment[]>>;
 }) {
-  const [state, action] = useFormState(commentPost, {
+  const [state, action] = useActionState(commentPost, {
     ok: false,
     data: null,
     error: "",
