@@ -2,11 +2,10 @@ import photosGet from "@/actions/photos-get";
 import Feed from "@/components/feed/feed";
 
 type Props = {
-  params: {
+  params: Promise<{
     user: string;
-  };
+  }>;
 };
-
 
 export default async function PerfilUserPage(props: Props) {
     const { user } = await props.params;
@@ -21,4 +20,4 @@ export default async function PerfilUserPage(props: Props) {
             <Feed photos={data} user={user} />
         </section>
     )
-} 
+}
