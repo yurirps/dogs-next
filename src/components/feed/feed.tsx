@@ -22,7 +22,6 @@ export default function Feed({
 
   const fetching = React.useRef(false);
   function infiniteScroll() {
-    console.log("rolou");
     if (fetching.current) return;
     fetching.current = true;
     setLoading(true);
