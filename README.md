@@ -32,6 +32,6 @@ Este projeto faz parte do estudo e prática de desenvolvimento moderno com o fra
 Clone o repositório e instale as dependências:
 
 ```bash
-git clone https://github.com/seu-usuario/dogs-next.git
+git clone https://github.com/yurirps/dogs-next.git
 cd dogs-next
 npm install
